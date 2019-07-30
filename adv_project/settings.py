@@ -17,9 +17,7 @@ import dotenv
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-env_file = os.path.join(BASE_DIR, ".env")
-if os.path.isfile(env_file):
-    dotenv.load_dotenv(env_file)
+DATABASE_URL = config('DATABASE_URL')
 
 
 # Quick-start development settings - unsuitable for production
@@ -96,7 +94,10 @@ WSGI_APPLICATION = 'adv_project.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {}
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES['default'] = dj_database_url.config(default=f'postgres://{DATABASE_URL}')
+
+#default=f'postgres://{DATABASE_URL}' put this inside .config above if using postgres locally
+
 
 
 
@@ -163,5 +164,3 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 import django_heroku
 django_heroku.settings(locals())
-
-del DATABASES['default']['OPTIONS']['sslmode']
