@@ -95,10 +95,10 @@ WSGI_APPLICATION = 'adv_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-# DATABASES = {}
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
-DATABASE_URL = 'sqlite:///db.sqlite3'
+
 
 
 # Password validation
@@ -164,4 +164,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 import django_heroku
 django_heroku.settings(locals())
 
-#del DATABASES['default']['OPTIONS']['sslmode']
+del DATABASES['default']['OPTIONS']['sslmode']
