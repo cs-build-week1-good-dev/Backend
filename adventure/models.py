@@ -72,6 +72,7 @@ class RoomSerializer(serializers.HyperlinkedModelSerializer):
 class RoomViewSet(viewsets.ModelViewSet):
     serializer_class = RoomSerializer
     queryset = Room.objects.all()
+    queryset.order_by('id')
 
 
 

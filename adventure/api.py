@@ -18,8 +18,9 @@ import json
 @api_view(["GET"])
 def all_rooms(request):
     
-    room = Room.objects.all()
+    
     list1=list(room)
+  
     
     return JsonResponse(list1, safe=False)
 
