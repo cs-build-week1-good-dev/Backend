@@ -6,10 +6,23 @@ from decouple import config
 from django.contrib.auth.models import User
 from .models import *
 from rest_framework.decorators import api_view
+from rest_framework import serializers
 import json
 
 # instantiate pusher
 # pusher = Pusher(app_id=config('PUSHER_APP_ID'), key=config('PUSHER_KEY'), secret=config('PUSHER_SECRET'), cluster=config('PUSHER_CLUSTER'))
+
+
+
+@csrf_exempt
+@api_view(["GET"])
+def all_rooms(request):
+    
+    room = Room.objects.all()
+    list1=list(room)
+    
+    return JsonResponse(list1, safe=False)
+
 
 @csrf_exempt
 @api_view(["GET"])
@@ -65,3 +78,6 @@ def move(request):
 def say(request):
     # IMPLEMENT
     return JsonResponse({'error':"Not yet implemented"}, safe=True, status=500)
+
+
+
