@@ -107,18 +107,18 @@ REST_FRAMEWORK = {
 }
 CORS_ORIGIN_ALLOW_ALL = False
 
-CORS_ALLOW_HEADERS = list(default_headers) + [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-    'Access-Control-Allow-Origin',
-]
+# CORS_ALLOW_HEADERS = list(default_headers) + [
+#     'accept',
+#     'accept-encoding',
+#     'authorization',
+#     'content-type',
+#     'dnt',
+#     'origin',
+#     'user-agent',
+#     'x-csrftoken',
+#     'x-requested-with',
+#     'Access-Control-Allow-Origin',
+# ]
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = ('localhost:3000', '127.0.0.1:3000',)
