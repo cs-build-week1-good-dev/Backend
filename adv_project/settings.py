@@ -105,7 +105,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ),
 }
-CORS_ORIGIN_ALLOW_ALL=True
+CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ALLOW_HEADERS = list(default_headers) + [
     'accept',
@@ -120,9 +120,9 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
     'Access-Control-Allow-Origin',
 ]
 
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
-]
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = ('localhost:3000', '127.0.0.1:3000',)
+CORS_ORIGIN_REGEX_WHITELIST=('localhost:3000', '127.0.0.1:3000')
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
