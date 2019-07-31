@@ -119,6 +119,11 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
     'x-requested-with',
     'Access-Control-Allow-Origin',
 ]
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+]
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 LANGUAGE_CODE = 'en-us'
