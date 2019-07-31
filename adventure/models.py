@@ -9,7 +9,9 @@ from uuid import uuid4
 
 class Room(models.Model):
     title = models.CharField(max_length=50, default="DEFAULT TITLE")
-    description = models.CharField(max_length=500, default="DEFAULT DESCRIPTION")
+    # description = models.CharField(max_length=500, default="DEFAULT DESCRIPTION")
+    x_coordinate = models.IntegerField(default=-1)
+    y_coordinate = models.IntegerField(default=-1)
     n_to = models.IntegerField(default=0)
     s_to = models.IntegerField(default=0)
     e_to = models.IntegerField(default=0)
@@ -68,7 +70,7 @@ def save_user_player(sender, instance, **kwargs):
 class RoomSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Room
-        fields = ('id','title', 'description','n_to','s_to','e_to','w_to')
+        fields = ('id','title', 'x_coordinate', 'y_coordinate','n_to','s_to','e_to','w_to')
 class RoomViewSet(viewsets.ModelViewSet):
     serializer_class = RoomSerializer
     queryset = Room.objects.all()
