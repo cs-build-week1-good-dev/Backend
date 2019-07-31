@@ -27,6 +27,46 @@ r_overlook.save()
 r_narrow.save()
 r_treasure.save()
 
+a_room_0 = Room(title="Clearing", description="You find yourself in a clearing. You have no idea how you got here.")
+a_room_0.save()
+
+a_room_1 = Room(title="Cavern", description="You enter a dark passageway. It's hard to tell where you're going.")
+a_room_1.save()
+
+a_room_2 = Room(title="Kitchen", description="You're in a kitchen. That doesn't seem right, but it smells like cupcakes, so that's nice.")
+a_room_2.save()
+
+a_room_3 = Room(title="Forest", description="You enter a dark forest with heavy ground cover. Be careful not to trip.")
+a_room_3.save()
+
+a_room_4 = Room(title="Cliff Edge", description="There's a pretty steep cliff here. You can't make it down safely")
+a_room_4.save()
+
+a_room_5 = Room(title="Abandoned Village", description="Makeshift shelters litter the area, but there are no signs of any residents.")
+a_room_5.save()
+
+a_room_6 = Room(title="Shrine", description="A towering statue of a six-eyed fox occupies a pedestal covered with mysterious carvings. You dare not get too close")
+a_room_6.save()
+
+a_room_7 = Room(title="Hilltop", description="You work your way to the top of a hill. You can barely see over the surrounding trees. It looks like the forest stretches for miles in every direction")
+a_room_7.save()
+# After creating a room, plug it into the room matrix below wherever you want. Feel free to add extra rows/columns as needed
+# A room with 'None' on all four sides will be inaccessible
+
+room_matrix = [
+  [a_room_4, None, a_room_0, None, None],
+  [a_room_3, a_room_2, a_room_1, None, None],
+  [a_room_5, None, None, None, None],
+  [a_room_6, a_room_7, None, None, None],
+  [None, None, None, None, None],
+  [None, None, None, None, None],
+  [None, None, None, None, None],
+  [None, None, None, None, None],
+  [None, None, None, None, None],
+  [None, None, None, None, None],
+  [None, None, None, None, None]
+]
+
 # Link rooms together
 r_outside.connectRooms(r_foyer, "n")
 r_foyer.connectRooms(r_outside, "s")
