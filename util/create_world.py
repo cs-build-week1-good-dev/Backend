@@ -50,6 +50,35 @@ a_room_6.save()
 
 a_room_7 = Room(title="Hilltop", description="You work your way to the top of a hill. You can barely see over the surrounding trees. It looks like the forest stretches for miles in every direction")
 a_room_7.save()
+
+a_room_8 = Room(title="Hedge Maze Entrance", description="As the mist shrowd lifts, you find yourself at the entrance of an onimous hedge maze. You can make out a light on a hill in the distance. It is your only path forward")
+a_room_8.save()
+
+a_room_9 = Room(title="Hedge Serenety pool", description="You come across a tranquil pond.  A brief respite from the tumultuous maze. Puzzled, you sit and gaze into the water. You notice an arrow pointing north fashioned from pebbles.")
+a_room_9.save()
+
+a_room_10 = Room(title="Hedge Chess Board", description="You step on to an enormous marble chess board.  Nature has consumed what was once an ostentation display of wealth. The pieces are life sized! You notice the queen piece has her are extended pointing. She has been turned to the _____ . On her back there is an inscriptinon, As the sun goes west you must go south. Remember this or perish as you move forth.")
+a_room_10.save()
+
+a_room_11 = Room(title="Hedge Ancient Oak", description="You are excited to arrive a a clearing with one solitary decrepit Oak tree. A raven has roosted in its barren branches. You scale the tree and examine the nest.  You find a tattered scroll reading: You have traveled far and wide, your final test is just inside. The sun rises in the  ____ and then goes _____ . Follow these directions to pass your test. Proceed _____ to continue.")
+a_room_11.save()
+
+a_room_12 = Room(title="Hedge Darkness Trial", description="Everything goes dark. You have arrived at the final test of your bravery. One wrong move will send you back to the beginning. Remember the words of the raven")
+a_room_12.save()
+
+a_room_13 = Room(title="Hedge Portal", description=" If room description is Hedge Portal it Sends user back to HedgeMaze Entrance")
+a_room_13.save()
+
+a_room_14 = Room(title="Hedge Test 1 Passed:Rose garden", description=" You have chosen wisely. Remember the words of the ravenscroll")
+a_room_14.save()
+
+a_room_15 = Room(title="Hedge Gauntlet Passed!:Bird sanctuary", description="A cacophony of ravens! You have escaped the maze. Proceed to  fufill your destiny!")
+a_room_15.save()
+
+
+
+#attach wrong turns that link to hedge entrance
+
 # After creating a room, plug it into the room matrix below wherever you want. Feel free to add extra rows/columns as needed
 # A room with 'None' on all four sides will be inaccessible
 
