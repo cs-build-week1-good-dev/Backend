@@ -105,7 +105,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ),
 }
-CORS_ORIGIN_ALLOW_ALL=True
+CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ALLOW_HEADERS = list(default_headers) + [
     'accept',
