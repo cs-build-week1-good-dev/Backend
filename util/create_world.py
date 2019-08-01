@@ -34,11 +34,11 @@ start_room = Room(x_coordinate=5,y_coordinate=5, title="Clearing")
 arr[5][5] = start_room
 start_room.save()
 del available_coordinates['55']
-another_room = Room(x_coordinate=5, y_coordinate=4, title=random.choice(room_name_list))
+another_room = Room(x_coordinate=4, y_coordinate=5, title=random.choice(room_name_list))
 arr[5][4] = another_room
 another_room.save()
 del available_coordinates['54']
-another_room = Room(x_coordinate=5, y_coordinate=6, title=random.choice(room_name_list))
+another_room = Room(x_coordinate=6, y_coordinate=5, title=random.choice(room_name_list))
 arr[5][6] = another_room
 another_room.save()
 del available_coordinates['56']
@@ -88,6 +88,6 @@ for i in range(0,10):
 
 players=Player.objects.all()
 for p in players:
-  p.currentRoom=arr[5][5].id
+  p.currentRoom=start_room.id
   p.save()
 
