@@ -64,11 +64,24 @@ for i in range(0,10):
             arr[i][j].connectRooms(arr[i + 1][j], "s")
             arr[i + 1][j].connectRooms(arr[i][j], "n")
           #Make the connection both directions to avoid 1-way paths
+      #uncomment this else statement to make rooms wrap from bottom to top
+      # else: 
+      #   if arr[0][j] is not None:
+      #     if random.random() < 0.80: # Remove this if statement to guarantee paths, increase number to make paths more likely
+      #       arr[i][j].connectRooms(arr[0][j], "s")
+      #       arr[0][j].connectRooms(arr[i][j], "n")
       if j < 9:
         if arr[i][j + 1] is not None: #There's a room to the east
           if random.random() < 0.80: # Remove this if statement to guarantee paths, increase number to make paths more likely
             arr[i][j].connectRooms(arr[i][j + 1], "e")
             arr[i][j + 1].connectRooms(arr[i][j], "w")
+      #uncomment this else statement to make rooms wrap from back to other side
+      # else:
+      #   if arr[i][0] is not None:
+      #     if random.random() < 0.80: # Remove this if statement to guarantee paths, increase number to make paths more likely
+      #       arr[i][j].connectRooms(arr[i][0], "e")
+      #       arr[i][0].connectRooms(arr[i][j], "w")
+          
 
 
 
