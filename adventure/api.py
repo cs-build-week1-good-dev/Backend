@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-# from pusher import Pusher
+from pusher import Pusher
 from django.http import JsonResponse
 from decouple import config
 from django.contrib.auth.models import User
@@ -8,11 +8,29 @@ from .models import *
 from rest_framework.decorators import api_view
 from rest_framework import serializers
 import json
+from time import gmtime, strftime
+
 
 # instantiate pusher
-# pusher = Pusher(app_id=config('PUSHER_APP_ID'), key=config('PUSHER_KEY'), secret=config('PUSHER_SECRET'), cluster=config('PUSHER_CLUSTER'))
+pusher = Pusher(app_id=config('PUSHER_APP_ID'), key=config('PUSHER_KEY'), secret=config('PUSHER_SECRET'), cluster=config('PUSHER_CLUSTER'))
 
+@csrf_exempt
+@api_view(["POST"])
+def say(request):
+    player = request.user.player
+    player_id = player.id
+    data = json.loads(request.body)
+    print("MESSAGE",data['message'])
+    message= data['message']
+    time = strftime("%m-%d-%Y %H:%M:%S", gmtime())
+    room = player.room()
+    currentPlayerUUIDs = room.playerUUIDs(player_id)
+    for p_uuid in currentPlayerUUIDs:
+        print("ROOMID",p_uuid)
 
+       
+        pusher.trigger(f'p-channel-{p_uuid}', u'broadcast', {'name':player.user.username,'message':f'{message}','time':f'{time}'})
+    return JsonResponse({'name':player.user.username, 'message':data['message'], 'error_msg':""}, safe=True)
 
 @csrf_exempt
 @api_view(["GET"])
@@ -74,11 +92,11 @@ def move(request):
         return JsonResponse({'name':player.user.username, 'title':room.title, 'players':players, 'error_msg':"You cannot move that way."}, safe=True)
 
 
-@csrf_exempt
-@api_view(["POST"])
-def say(request):
-    # IMPLEMENT
-    return JsonResponse({'error':"Not yet implemented"}, safe=True, status=500)
+# @csrf_exempt
+# @api_view(["POST"])
+# def say(request):
+#     # IMPLEMENT
+#     return JsonResponse({'error':"Not yet implemented"}, safe=True, status=500)
 
 
 
