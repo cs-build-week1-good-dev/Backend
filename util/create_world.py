@@ -47,7 +47,8 @@ for i in range(0, 73):
   random_coordinate = random.choice(list(available_coordinates))
   x_coord = int(random_coordinate[0])
   y_coord = int(random_coordinate[1])
-  another_room = Room(x_coordinate=x_coord, y_coordinate=y_coord, title=random.choice(room_name_list))
+  #Swapping x and y because array syntax is opposite of graph syntax
+  another_room = Room(x_coordinate=y_coord, y_coordinate=x_coord, title=random.choice(room_name_list))
   arr[x_coord][y_coord] = another_room
   another_room.save()
   del available_coordinates[random_coordinate]
