@@ -25,6 +25,7 @@ def say(request):
     time = strftime("%m-%d-%Y %H:%M:%S", gmtime())
     room = player.room()
     currentPlayerUUIDs = room.playerUUIDs(player_id)
+    pusher.trigger(f'p-channel-{player.uuid}', u'broadcast', {'name':player.user.username,'message':f'{message}','time':f'{time}'})
     for p_uuid in currentPlayerUUIDs:
         print("ROOMID",p_uuid)
 
